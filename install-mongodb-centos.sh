@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# this is for 64bit install!!
+
 clear
 echo 'Starting MongoDB install'
 
