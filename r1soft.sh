@@ -8,10 +8,18 @@ echo "gpgcheck=0" >> /etc/yum.repos.d/r1soft.repo
 yum install -y unzip 
 yum install -y serverbackup-free 
 clear
-echo "Now you can proceed to step 3 : http://wiki.r1soft.com/display/ServerBackup/Install+Server+Backup+Free+on+CentOS%2C+RHE%2C+and+Fedora#InstallServerBackupFreeonCentOS%2CRHE%2CandFedora-login"
-
-
-
+echo "Enter username for R1Soft WebUI:"
+read DESIRED_USERNAME
+echo "Enter password for R1Soft WebUI:"
+read DESIRED_PASSWORD
+serverbackup-setup --user DESIRED_USERNAME --pass DESIRED_PASSWORD 
+serverbackup-setup \--http-port 8080 \--https-port 8443 
+/etc/init.d/cdp-server restart
+clear
+echo "WebUI restarted"
+echo "IPADDRESS:8080 for http"
+echo "IPADDRESS:8443 for https - SSL"
+echo "Done!"
 
 
 
